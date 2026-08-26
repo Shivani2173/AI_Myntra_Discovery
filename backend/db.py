@@ -12,6 +12,17 @@ _engine: Engine | None = None
 SessionLocal: sessionmaker[Session] | None = None
 
 
+def _normalize_url(url: str) -> str:
+    # Neon/Render give plain postgres(ql):// URLs, which SQLAlchemy defaults to
+    # the psycopg2 dialect. Only psycopg (v3) is in requirements.txt, so force
+    # that dialect explicitly instead of requiring callers to know this.
+    if url.startswith("postgres://"):
+        url = "postgresql://" + url[len("postgres://") :]
+    if url.startswith("postgresql://"):
+        url = "postgresql+psycopg://" + url[len("postgresql://") :]
+    return url
+
+
 def _ensure_sqlite_dir(url: str) -> None:
     if not url.startswith("sqlite"):
         return
@@ -31,10 +42,11 @@ def get_engine() -> Engine:
     if _engine is None:
         settings = get_settings()
         _ensure_sqlite_dir(settings.database_url)
+        url = _normalize_url(settings.database_url)
         connect_args = {}
-        if settings.database_url.startswith("sqlite"):
+        if url.startswith("sqlite"):
             connect_args = {"check_same_thread": False}
-        _engine = create_engine(settings.database_url, connect_args=connect_args)
+        _engine = create_engine(url, connect_args=connect_args)
         SessionLocal = sessionmaker(bind=_engine, autoflush=False, autocommit=False)
     return _engine
 
