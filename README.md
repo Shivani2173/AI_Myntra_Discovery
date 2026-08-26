@@ -10,7 +10,7 @@ Store-first wishlist → purchase barrier insights. Connectors find public text;
 | `backend/` | **Render** | FastAPI gather + extract + `/behaviors` |
 | DB | **Neon** Postgres | `DATABASE_URL` on Render (SQLite OK locally) |
 
-Secrets stay on Render. Never put Reddit / YouTube / Gemini keys in the Vercel client bundle.
+Secrets stay on Render. Never put YouTube / Gemini keys in the Vercel client bundle.
 
 ## Local setup
 
@@ -61,7 +61,6 @@ INGEST_TOKEN=change-me
 | `CORS_ORIGINS` | Render | Your Vercel origin, e.g. `https://….vercel.app` |
 | `GEMINI_API_KEY` | Render | Code new units (Flash) |
 | `YOUTUBE_API_KEY` | Render | Comments (quota-capped in `configs/default.yaml`) |
-| `REDDIT_CLIENT_ID` / `SECRET` | Render or laptop | PRAW; cloud IPs may be blocked |
 | `NEXT_PUBLIC_API_URL` | Vercel | Render API URL |
 
 Optional local: Ollama if Gemini empty (`OLLAMA_*`). Not used on Render (`RENDER=true`).
@@ -83,18 +82,6 @@ python -m backend.cli behaviors
 
 - YouTube: keep `quota_caps` low in `configs/default.yaml`.
 - Gemini free tier: extract pauses between calls; if quota hits, re-run `extract` later. Old codes stay served.
-- Reddit: rate limits; prefer a script app at https://www.reddit.com/prefs/apps.
-
-## Reddit IP blocked on Render
-
-If Reddit fails from Render, run gather on your laptop against **the same Neon** `DATABASE_URL`:
-
-```powershell
-# .env points at Neon
-python -m backend.cli gather
-```
-
-Vercel UI still reads insights via Render → Neon. Banner may show YouTube/Reddit errors; stored cards remain.
 
 ## Deploy
 
