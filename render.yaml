@@ -23,7 +23,7 @@ services:
       - key: GEMINI_API_KEY
         sync: false
       - key: GEMINI_MODEL
-        value: gemini-2.0-flash
+        value: gemini-3.6-flash
       - key: YOUTUBE_API_KEY
         sync: false
       - key: REDDIT_CLIENT_ID
