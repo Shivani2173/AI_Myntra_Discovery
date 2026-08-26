@@ -1,0 +1,38 @@
+# Render blueprint — API + gather jobs
+# Dashboard: deploy web/ separately on Vercel with NEXT_PUBLIC_API_URL pointing here.
+# Database: create a Neon Postgres project and paste DATABASE_URL into Render env.
+
+services:
+  - type: web
+    name: discovery-engine-api
+    runtime: python
+    plan: free
+    rootDir: .
+    buildCommand: pip install -r backend/requirements.txt && pip install .
+    startCommand: uvicorn backend.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.9"
+      - key: DATABASE_URL
+        sync: false
+      - key: INGEST_TOKEN
+        sync: false
+      - key: CORS_ORIGINS
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-2.0-flash
+      - key: YOUTUBE_API_KEY
+        sync: false
+      - key: REDDIT_CLIENT_ID
+        sync: false
+      - key: REDDIT_CLIENT_SECRET
+        sync: false
+      - key: REDDIT_USER_AGENT
+        sync: false
+      - key: USE_MINILM
+        value: "false"
+      - key: RENDER
+        value: "true"

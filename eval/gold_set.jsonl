@@ -1,0 +1,117 @@
+{"id": "gold-001", "text": "I wishlist looks on Myntra just for outfit inspiration, not buying this month.", "relevant": true, "outcome_stance": "bookmark_only", "primary_barrier": "bookmark_inspiration"}
+{"id": "gold-002", "text": "Saved 40 dresses to my wishlist as a mood board for later styling ideas.", "relevant": true, "outcome_stance": "bookmark_only", "primary_barrier": "bookmark_inspiration"}
+{"id": "gold-003", "text": "I keep AJIO wishlist for Pinterest-style looks, never check out.", "relevant": true, "outcome_stance": "bookmark_only", "primary_barrier": "bookmark_inspiration"}
+{"id": "gold-004", "text": "Added to wishlist to compare later with other brands before deciding.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "bookmark_compare_later"}
+{"id": "gold-005", "text": "Shortlisted three kurtis so I can compare fabric and price next weekend.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "bookmark_compare_later"}
+{"id": "gold-006", "text": "Wishlist is for my sister's birthday gift ideas, not for me.", "relevant": true, "outcome_stance": "bookmark_only", "primary_barrier": "gift_or_other_person"}
+{"id": "gold-007", "text": "Saved this for Mum — she might like it, I won't buy for myself.", "relevant": true, "outcome_stance": "bookmark_only", "primary_barrier": "gift_or_other_person"}
+{"id": "gold-008", "text": "Maybe I'll buy someday, no rush, just sitting in wishlist.", "relevant": true, "outcome_stance": "bookmark_only", "primary_barrier": "low_urgency_maybe"}
+{"id": "gold-009", "text": "Low priority wishlist dump — if I remember maybe next sale.", "relevant": true, "outcome_stance": "unclear", "primary_barrier": "low_urgency_maybe"}
+{"id": "gold-010", "text": "Added to wishlist but scared to order — Myntra size chart never matches my body.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "fit_size_uncertainty"}
+{"id": "gold-011", "text": "Love the dress but size S/M confusion, leaving it wishlisted until I know fit.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "fit_size_uncertainty"}
+{"id": "gold-012", "text": "Waiting to see a haul on my body type before I buy from wishlist.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "fit_size_uncertainty"}
+{"id": "gold-013", "text": "AJIO sizing is random so I wishlist and never convert until I find similar-body reviews.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "fit_size_uncertainty"}
+{"id": "gold-014", "text": "Photos look great but I'm sure the real fabric will disappoint — still on wishlist.", "relevant": true, "outcome_stance": "abandon", "primary_barrier": "looks_vs_reality"}
+{"id": "gold-015", "text": "Wishlisted because studio photos look fake; need real customer pics first.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "looks_vs_reality"}
+{"id": "gold-016", "text": "Not sure this kurti works with my wardrobe so it's stuck in wishlist.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "styling_wardrobe_fit"}
+{"id": "gold-017", "text": "Saved for a wedding later this year — wrong occasion timing to buy now.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "occasion_timing"}
+{"id": "gold-018", "text": "Waiting for Diwali week before buying the wishlisted lehenga.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "occasion_timing"}
+{"id": "gold-019", "text": "Won't buy until friends say it looks good on me — still wishlisted.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "social_validation"}
+{"id": "gold-020", "text": "Need Instagram opinions before converting this wishlist save.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "social_validation"}
+{"id": "gold-021", "text": "Waiting for 50% off — MRP looks fake so I just wishlist.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "wait_for_price_drop"}
+{"id": "gold-022", "text": "I'll buy when there's a real coupon, not 10% off on my wishlist item.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "wait_for_price_drop"}
+{"id": "gold-023", "text": "Price watch on Myntra wishlist until Big Billion / End of Reason sale.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "wait_for_price_drop"}
+{"id": "gold-024", "text": "Found cheaper on another site so leaving Myntra wishlist alone.", "relevant": true, "outcome_stance": "abandon", "primary_barrier": "better_price_elsewhere"}
+{"id": "gold-025", "text": "Same dress cheaper on AJIO; Myntra wishlist is just for tracking.", "relevant": true, "outcome_stance": "abandon", "primary_barrier": "better_price_elsewhere"}
+{"id": "gold-026", "text": "Waiting for payday to clear my wishlist checkout.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "budget_payday"}
+{"id": "gold-027", "text": "Salary next week — wishlist stays until then.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "budget_payday"}
+{"id": "gold-028", "text": "Not convinced the quality matches the price so I won't buy yet.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "value_doubt"}
+{"id": "gold-029", "text": "Wishlisted but value seems poor for what they charge.", "relevant": true, "outcome_stance": "abandon", "primary_barrier": "value_doubt"}
+{"id": "gold-030", "text": "Returns are a pain so I just leave it in wishlist instead of ordering.", "relevant": true, "outcome_stance": "abandon", "primary_barrier": "return_exchange_friction"}
+{"id": "gold-031", "text": "Exchange pickup hassle keeps me from buying wishlisted shoes.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "return_exchange_friction"}
+{"id": "gold-032", "text": "Don't trust the reviews on this PDP — staying wishlisted.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "review_trust"}
+{"id": "gold-033", "text": "Fake reviews vibe; won't convert wishlist until better proof.", "relevant": true, "outcome_stance": "abandon", "primary_barrier": "review_trust"}
+{"id": "gold-034", "text": "Had a bad past order from this seller so wishlist only, no buy.", "relevant": true, "outcome_stance": "abandon", "primary_barrier": "past_bad_experience"}
+{"id": "gold-035", "text": "Last return experience was awful — wishlist is safer than ordering.", "relevant": true, "outcome_stance": "abandon", "primary_barrier": "past_bad_experience"}
+{"id": "gold-036", "text": "Worried about authenticity on marketplace sellers — wishlisted not bought.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "counterfeit_or_seller_doubt"}
+{"id": "gold-037", "text": "Seller rating looks shady; keeping the dress in wishlist only.", "relevant": true, "outcome_stance": "abandon", "primary_barrier": "counterfeit_or_seller_doubt"}
+{"id": "gold-038", "text": "Too many items shortlisted — decision paralysis, buy nothing.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "too_many_shortlisted"}
+{"id": "gold-039", "text": "Wishlist has 80 pieces and I freeze every time I open it.", "relevant": true, "outcome_stance": "bookmark_only", "primary_barrier": "too_many_shortlisted"}
+{"id": "gold-040", "text": "Can't compare sizes and delivery side by side so wishlist sits.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "missing_compare_tools"}
+{"id": "gold-041", "text": "App needs a proper compare for shortlist — until then no buy.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "missing_compare_tools"}
+{"id": "gold-042", "text": "Bought from Zara instead of converting my Myntra wishlist.", "relevant": true, "outcome_stance": "abandon", "primary_barrier": "switched_to_alternative"}
+{"id": "gold-043", "text": "Ended up ordering elsewhere; wishlist item abandoned.", "relevant": true, "outcome_stance": "abandon", "primary_barrier": "switched_to_alternative"}
+{"id": "gold-044", "text": "My size went OOS after I wishlisted — can't buy now.", "relevant": true, "outcome_stance": "abandon", "primary_barrier": "oos_after_wishlist"}
+{"id": "gold-045", "text": "Wishlisted color disappeared from stock, so no purchase.", "relevant": true, "outcome_stance": "abandon", "primary_barrier": "oos_after_wishlist"}
+{"id": "gold-046", "text": "Delivery would miss the wedding date so I left it wishlisted.", "relevant": true, "outcome_stance": "abandon", "primary_barrier": "delivery_too_slow"}
+{"id": "gold-047", "text": "Shipping ETA too slow for the event — wishlist only.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "delivery_too_slow"}
+{"id": "gold-048", "text": "COD failed at checkout for my wishlisted dress again.", "relevant": true, "outcome_stance": "abandon", "primary_barrier": "payment_or_app_friction"}
+{"id": "gold-049", "text": "App keeps crashing at payment so wishlist never converts.", "relevant": true, "outcome_stance": "abandon", "primary_barrier": "payment_or_app_friction"}
+{"id": "gold-050", "text": "Forgot my wishlist for months — everything feels stale now.", "relevant": true, "outcome_stance": "abandon", "primary_barrier": "forgotten_wishlist"}
+{"id": "gold-051", "text": "No reminders; wishlist went cold and I moved on.", "relevant": true, "outcome_stance": "abandon", "primary_barrier": "forgotten_wishlist"}
+{"id": "gold-052", "text": "Still watching YouTube hauls before buying from my wishlist.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "seeking_external_proof"}
+{"id": "gold-053", "text": "Need Reddit fit advice before converting this save.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "seeking_external_proof"}
+{"id": "gold-054", "text": "Waiting for Instagram try-on videos for this exact SKU.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "seeking_external_proof"}
+{"id": "gold-055", "text": "Size chart says M but reviews say size up — wishlist stall.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "fit_size_uncertainty"}
+{"id": "gold-056", "text": "Keeping it wishlisted until End of Reason Sale discount is real.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "wait_for_price_drop"}
+{"id": "gold-057", "text": "Inspiration save only — never planned to checkout.", "relevant": true, "outcome_stance": "bookmark_only", "primary_barrier": "bookmark_inspiration"}
+{"id": "gold-058", "text": "Compare later with Nykaa Fashion prices before I decide.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "bookmark_compare_later"}
+{"id": "gold-059", "text": "Gift shortlist for cousin, not my purchase intent.", "relevant": true, "outcome_stance": "bookmark_only", "primary_barrier": "gift_or_other_person"}
+{"id": "gold-060", "text": "Looks vs reality gap — fabric will be shiny, leaving wishlist.", "relevant": true, "outcome_stance": "abandon", "primary_barrier": "looks_vs_reality"}
+{"id": "gold-061", "text": "Doesn't match my office wardrobe so wishlist forever.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "styling_wardrobe_fit"}
+{"id": "gold-062", "text": "Buying after festival season when I actually need it.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "occasion_timing"}
+{"id": "gold-063", "text": "Need coworkers to validate the look first.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "social_validation"}
+{"id": "gold-064", "text": "Amazon IN has better deal than my AJIO wishlist price.", "relevant": true, "outcome_stance": "abandon", "primary_barrier": "better_price_elsewhere"}
+{"id": "gold-065", "text": "Budget tight until month end — wishlist holds.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "budget_payday"}
+{"id": "gold-066", "text": "Quality doubt at this MRP; won't convert.", "relevant": true, "outcome_stance": "abandon", "primary_barrier": "value_doubt"}
+{"id": "gold-067", "text": "Return window too short; scared to order from wishlist.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "return_exchange_friction"}
+{"id": "gold-068", "text": "Reviews contradict each other — trust issue, wishlist only.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "review_trust"}
+{"id": "gold-069", "text": "Seller changed after cart; authenticity worry.", "relevant": true, "outcome_stance": "abandon", "primary_barrier": "counterfeit_or_seller_doubt"}
+{"id": "gold-070", "text": "Shortlist overload — pick none.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "too_many_shortlisted"}
+{"id": "gold-071", "text": "No compare tool for fabric GSM — stuck.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "missing_compare_tools"}
+{"id": "gold-072", "text": "Switched to local boutique instead of wishlist checkout.", "relevant": true, "outcome_stance": "abandon", "primary_barrier": "switched_to_alternative"}
+{"id": "gold-073", "text": "Size XL vanished after wishlist — OOS block.", "relevant": true, "outcome_stance": "abandon", "primary_barrier": "oos_after_wishlist"}
+{"id": "gold-074", "text": "Courier too slow for trip next week.", "relevant": true, "outcome_stance": "abandon", "primary_barrier": "delivery_too_slow"}
+{"id": "gold-075", "text": "UPI fails every time on this app checkout.", "relevant": true, "outcome_stance": "abandon", "primary_barrier": "payment_or_app_friction"}
+{"id": "gold-076", "text": "Rediscovered old wishlist — already bought elsewhere months ago.", "relevant": true, "outcome_stance": "abandon", "primary_barrier": "forgotten_wishlist"}
+{"id": "gold-077", "text": "Reading Reddit threads before I tap buy on wishlisted sneakers.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "seeking_external_proof"}
+{"id": "gold-078", "text": "Myntra wishlist used as lookbook for college outfits.", "relevant": true, "outcome_stance": "bookmark_only", "primary_barrier": "bookmark_inspiration"}
+{"id": "gold-079", "text": "Will buy after next coupon drop email.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "wait_for_price_drop"}
+{"id": "gold-080", "text": "Fit uncertainty on jeans — need try-on video.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "fit_size_uncertainty"}
+{"id": "gold-081", "text": "Past dye-bleed issue with brand; won't reorder from wishlist.", "relevant": true, "outcome_stance": "abandon", "primary_barrier": "past_bad_experience"}
+{"id": "gold-082", "text": "Waiting for bank credit — payday barrier.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "budget_payday"}
+{"id": "gold-083", "text": "Photoshoot lighting lies; reality check needed.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "looks_vs_reality"}
+{"id": "gold-084", "text": "Wishlist compare later with sister's picks.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "bookmark_compare_later"}
+{"id": "gold-085", "text": "Out of stock after sale alert — missed buy.", "relevant": true, "outcome_stance": "abandon", "primary_barrier": "oos_after_wishlist"}
+{"id": "gold-086", "text": "App checkout OTP loop — friction.", "relevant": true, "outcome_stance": "abandon", "primary_barrier": "payment_or_app_friction"}
+{"id": "gold-087", "text": "Forgotten list from last year still sitting there.", "relevant": true, "outcome_stance": "abandon", "primary_barrier": "forgotten_wishlist"}
+{"id": "gold-088", "text": "Seeking external proof on length before purchase.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "seeking_external_proof"}
+{"id": "gold-089", "text": "Return pickup never came last time — friction high.", "relevant": true, "outcome_stance": "abandon", "primary_barrier": "return_exchange_friction"}
+{"id": "gold-090", "text": "Value doubt on embroidered set at this price.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "value_doubt"}
+{"id": "gold-091", "text": "Gift for Diwali guest — not self purchase intent.", "relevant": true, "outcome_stance": "bookmark_only", "primary_barrier": "gift_or_other_person"}
+{"id": "gold-092", "text": "Maybe later if I still like it — low urgency.", "relevant": true, "outcome_stance": "unclear", "primary_barrier": "low_urgency_maybe"}
+{"id": "gold-093", "text": "Social validation from roommate before buy.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "social_validation"}
+{"id": "gold-094", "text": "Styling wardrobe fit unclear with existing tops.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "styling_wardrobe_fit"}
+{"id": "gold-095", "text": "Occasion is months away — timing wait.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "occasion_timing"}
+{"id": "gold-096", "text": "Better price elsewhere on same SKU code.", "relevant": true, "outcome_stance": "abandon", "primary_barrier": "better_price_elsewhere"}
+{"id": "gold-097", "text": "Counterfeit fear on marketplace listing.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "counterfeit_or_seller_doubt"}
+{"id": "gold-098", "text": "Too many shortlisted ethnic sets — paralysis.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "too_many_shortlisted"}
+{"id": "gold-099", "text": "Missing compare for sleeve length across shortlist.", "relevant": true, "outcome_stance": "postpone", "primary_barrier": "missing_compare_tools"}
+{"id": "gold-100", "text": "Switched to alternative brand sale overnight.", "relevant": true, "outcome_stance": "abandon", "primary_barrier": "switched_to_alternative"}
+{"id": "gold-101", "text": "Delivery too slow for tomorrow's event.", "relevant": true, "outcome_stance": "abandon", "primary_barrier": "delivery_too_slow"}
+{"id": "gold-102", "text": "Review trust broken after sponsored-looking 5-stars.", "relevant": true, "outcome_stance": "abandon", "primary_barrier": "review_trust"}
+{"id": "gold-103", "text": "The weather in Goa is nice this week and I like mangoes a lot.", "relevant": false, "outcome_stance": "unclear", "primary_barrier": "other_offtopic"}
+{"id": "gold-104", "text": "Who won the cricket match yesterday? Score was crazy.", "relevant": false, "outcome_stance": "unclear", "primary_barrier": "other_offtopic"}
+{"id": "gold-105", "text": "Recipe for dal makhani please, no shopping talk.", "relevant": false, "outcome_stance": "unclear", "primary_barrier": "other_offtopic"}
+{"id": "gold-106", "text": "My phone battery drains too fast after the update.", "relevant": false, "outcome_stance": "unclear", "primary_barrier": "other_offtopic"}
+{"id": "gold-107", "text": "Looking for Python tutorial on FastAPI beginners.", "relevant": false, "outcome_stance": "unclear", "primary_barrier": "other_offtopic"}
+{"id": "gold-108", "text": "Traffic on the highway was terrible this morning.", "relevant": false, "outcome_stance": "unclear", "primary_barrier": "other_offtopic"}
+{"id": "gold-109", "text": "Concert tickets sold out in minutes again.", "relevant": false, "outcome_stance": "unclear", "primary_barrier": "other_offtopic"}
+{"id": "gold-110", "text": "Dog training tips for puppies that bite furniture.", "relevant": false, "outcome_stance": "unclear", "primary_barrier": "other_offtopic"}
+{"id": "gold-111", "text": "Stock market dipped; holding my mutual funds.", "relevant": false, "outcome_stance": "unclear", "primary_barrier": "other_offtopic"}
+{"id": "gold-112", "text": "Best cafes in Indiranagar for remote work?", "relevant": false, "outcome_stance": "unclear", "primary_barrier": "other_offtopic"}
+{"id": "gold-113", "text": "How do I reset my WiFi router password?", "relevant": false, "outcome_stance": "unclear", "primary_barrier": "other_offtopic"}
+{"id": "gold-114", "text": "Movie recommendations for a rainy Sunday.", "relevant": false, "outcome_stance": "unclear", "primary_barrier": "other_offtopic"}
+{"id": "gold-115", "text": "Gym PR on deadlifts today felt great.", "relevant": false, "outcome_stance": "unclear", "primary_barrier": "other_offtopic"}
+{"id": "gold-116", "text": "Plant care for indoor monstera yellowing leaves.", "relevant": false, "outcome_stance": "unclear", "primary_barrier": "other_offtopic"}
+{"id": "gold-117", "text": "Flight delayed three hours at the airport.", "relevant": false, "outcome_stance": "unclear", "primary_barrier": "other_offtopic"}

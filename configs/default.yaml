@@ -1,0 +1,46 @@
+queries:
+  reddit:
+    - wishlist
+    - waiting for sale
+    - size chart
+    - should I buy
+    - Myntra return
+    - AJIO fit
+    - Myntra wishlist
+    - Myntra size issue
+    - Myntra out of stock
+    - Myntra fake product
+    - Myntra return experience
+    - AJIO return
+    - Nykaa Fashion review
+    - shortlisted but didn't buy
+    - waiting for payday
+    - too many items in cart
+  youtube:
+    - Myntra haul
+    - AJIO haul
+    - size fit online shopping India
+    - Myntra return experience
+    - Myntra size guide
+    - Myntra vs AJIO
+    - Nykaa Fashion haul
+    - online shopping wishlist India
+
+app_store_rss_ids:
+  myntra: "907394059"
+  ajio: "1119458845"
+  nykaa_fashion: "1088006525"
+  amazon_in: "400304911"
+
+quota_caps:
+  reddit_threads: 20
+  youtube_videos: 20
+  youtube_comments_per_video: 40
+  app_store_pages_per_app: 3
+
+extract:
+  max_units_per_run: 40
+  json_retries: 2
+  llm_pause_seconds: 13
+  near_dup_threshold: 0.92
+  minilm_model: all-MiniLM-L6-v2

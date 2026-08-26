@@ -1,0 +1,52 @@
+name: Scheduled gather
+
+# Render free has no cron — ping the API gather job on a schedule.
+# Secrets: API_URL (https://your-api.onrender.com), INGEST_TOKEN
+
+on:
+  schedule:
+    - cron: "0 */12 * * *"
+  workflow_dispatch:
+
+jobs:
+  gather:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Start incremental gather
+        env:
+          API_URL: ${{ secrets.API_URL }}
+          INGEST_TOKEN: ${{ secrets.INGEST_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [ -z "${API_URL:-}" ] || [ -z "${INGEST_TOKEN:-}" ]; then
+            echo "Set repository secrets API_URL and INGEST_TOKEN"
+            exit 1
+          fi
+          BASE="${API_URL%/}"
+          RESP=$(curl -sS -X POST "$BASE/jobs/gather" \
+            -H "X-Ingest-Token: $INGEST_TOKEN" \
+            -H "Accept: application/json")
+          echo "$RESP"
+          JOB=$(echo "$RESP" | python -c "import sys,json; print(json.load(sys.stdin).get('job_id',''))")
+          if [ -z "$JOB" ]; then
+            echo "No job_id returned"
+            exit 1
+          fi
+          for i in $(seq 1 90); do
+            sleep 10
+            STATUS=$(curl -sS "$BASE/jobs/$JOB" \
+              -H "X-Ingest-Token: $INGEST_TOKEN" \
+              -H "Accept: application/json")
+            STATE=$(echo "$STATUS" | python -c "import sys,json; print(json.load(sys.stdin).get('status',''))")
+            echo "poll $i: $STATE"
+            if [ "$STATE" = "done" ]; then
+              echo "$STATUS"
+              exit 0
+            fi
+            if [ "$STATE" = "error" ]; then
+              echo "$STATUS"
+              exit 1
+            fi
+          done
+          echo "timed out"
+          exit 1
