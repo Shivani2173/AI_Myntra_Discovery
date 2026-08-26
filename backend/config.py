@@ -1,6 +1,7 @@
 from functools import lru_cache
 from pathlib import Path
 
+from pydantic import field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -26,6 +27,14 @@ class Settings(BaseSettings):
     ollama_model: str = "llama3.1"
     extract_stub: bool = False
     use_minilm: bool = False
+
+    @field_validator("ingest_token", mode="after")
+    @classmethod
+    def _strip_ingest_token(cls, value: str) -> str:
+        # Dashboard env-var fields (Render/Vercel) can silently pick up a
+        # trailing newline or space on paste; whitespace is never meaningful
+        # in this token, so drop it rather than fail an exact-match compare.
+        return value.strip()
 
     @property
     def cors_origin_list(self) -> list[str]:

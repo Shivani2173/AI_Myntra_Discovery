@@ -1,4 +1,3 @@
-import hashlib
 import json
 from contextlib import asynccontextmanager
 
@@ -41,15 +40,7 @@ app.add_middleware(
 
 def _health_payload() -> dict:
     ping_db()
-    s = get_settings()
-    # TEMP diagnostic — remove once the Render ingest-token mismatch is resolved.
-    token_fp = hashlib.sha256(s.ingest_token.encode()).hexdigest()[:8]
-    return {
-        "status": "ok",
-        "phase": 5,
-        "ingest_token_len": len(s.ingest_token),
-        "ingest_token_fingerprint": token_fp,
-    }
+    return {"status": "ok", "phase": 5}
 
 
 def _run_job(job_id: str) -> None:

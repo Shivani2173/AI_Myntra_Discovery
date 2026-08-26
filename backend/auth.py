@@ -12,7 +12,8 @@ def require_ingest_token(
     settings: Settings = Depends(get_settings),
 ) -> None:
     expected = settings.ingest_token
-    if not x_ingest_token or not expected:
+    provided = (x_ingest_token or "").strip()
+    if not provided or not expected:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid ingest token")
-    if not secrets.compare_digest(x_ingest_token, expected):
+    if not secrets.compare_digest(provided, expected):
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid ingest token")
