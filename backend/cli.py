@@ -5,6 +5,7 @@ import json
 import sys
 
 from backend.behaviors import rebuild_and_persist
+from backend.csv_seed import run_import_csv
 from backend.db import init_db, ping_db, session_scope
 from backend.extract import run_extract
 from backend.gather import run_gather
@@ -30,6 +31,17 @@ def cmd_gather() -> int:
     except KeyboardInterrupt:
         print("\n[cli] stopped (Ctrl+C). Partial source saves may already be in the DB.", flush=True)
         return 130
+    finally:
+        db.close()
+
+
+def cmd_import_csv() -> int:
+    init_db()
+    db = session_scope()
+    try:
+        result = run_import_csv(db)
+        print(json.dumps(result, indent=2))
+        return 0
     finally:
         db.close()
 
@@ -84,6 +96,7 @@ def main(argv: list[str] | None = None) -> int:
     sub = parser.add_subparsers(dest="command", required=True)
     sub.add_parser("health", help="Create tables if needed and ping the database")
     sub.add_parser("gather", help="Pull sources into units, then code new rows")
+    sub.add_parser("import-csv", help="Import the bundled curated evidence CSV as units (idempotent)")
     sub.add_parser("extract", help="Gemini/Ollama-code uncoded relevant units only")
     sub.add_parser("behaviors", help="Rebuild CPU-only behavior map from stored codes")
     ev = sub.add_parser("eval", help="Gold-set precision/recall")
@@ -98,6 +111,8 @@ def main(argv: list[str] | None = None) -> int:
         return cmd_health()
     if args.command == "gather":
         return cmd_gather()
+    if args.command == "import-csv":
+        return cmd_import_csv()
     if args.command == "extract":
         return cmd_extract()
     if args.command == "behaviors":

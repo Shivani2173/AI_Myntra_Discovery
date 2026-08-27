@@ -97,6 +97,12 @@ SOURCE_LABELS = {
     "reddit": "Reddit",
     "youtube": "YouTube",
     "app_store": "App Store",
+    "news": "News",
+    "linkedin": "LinkedIn",
+    "medium": "Medium",
+    "instagram": "Instagram",
+    "facebook": "Facebook",
+    "web_research": "Web research",
 }
 
 PRESET_CHIPS = [

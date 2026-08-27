@@ -1,4 +1,7 @@
 import json
+import logging
+import threading
+import traceback
 from contextlib import asynccontextmanager
 
 from fastapi import BackgroundTasks, Depends, FastAPI, HTTPException
@@ -15,14 +18,44 @@ from backend.behaviors import (
     units_list_response,
 )
 from backend.config import get_settings
+from backend.csv_seed import run_import_csv
 from backend.db import get_db, init_db, ping_db, session_scope
+from backend.extract import run_extract
 from backend.gather import create_job, execute_extract_job, execute_job
 from backend.models import Code, GatherJob, SourceStatus, Unit
+from backend.store import save_status
+
+log = logging.getLogger(__name__)
+
+
+def _seed_default_data() -> None:
+    """Import the bundled curated CSV and code it, in the background, on every boot.
+
+    Runs off the ASGI event loop so it never delays startup or /health. Safe to
+    run every boot: upsert_envelope dedupes on (source, source_id).
+    """
+    db = session_scope()
+    try:
+        result = run_import_csv(db)
+        run_extract(db)
+        save_status(db, "csv_seed", "ok", json.dumps(result)[:500])
+        db.commit()
+    except Exception as exc:
+        db.rollback()
+        log.error("csv_seed failed: %s\n%s", exc, traceback.format_exc())
+        try:
+            save_status(db, "csv_seed", "error", str(exc)[:500])
+            db.commit()
+        except Exception:
+            db.rollback()
+    finally:
+        db.close()
 
 
 @asynccontextmanager
 async def lifespan(_app: FastAPI):
     init_db()
+    threading.Thread(target=_seed_default_data, daemon=True).start()
     yield
 
 

@@ -67,6 +67,12 @@ export function sourceLabel(source: string): string {
     youtube: "YouTube",
     app_store: "App Store",
     extract: "Extract",
+    news: "News",
+    linkedin: "LinkedIn",
+    medium: "Medium",
+    instagram: "Instagram",
+    facebook: "Facebook",
+    web_research: "Web research",
   };
   return map[source] || source;
 }
