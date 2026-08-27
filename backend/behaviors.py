@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import re
 from collections import Counter, defaultdict
 from dataclasses import dataclass
 from datetime import datetime, timezone
@@ -18,6 +19,23 @@ from backend.taxonomy import ALLOWED_SEED, FAMILY_LABELS, SEED_BARRIERS
 CORPUS_CAPTION = "Of analyzed wishlist conversations, not Myntra live conversion."
 HEADER_SLUG = "_header"
 OTHER_CLUSTER_THRESHOLD = 0.82
+
+# Display-only: rival platform mentions in LLM-synthesized text (mechanism,
+# quotes, titles) read as off-brand for a Myntra-focused report. This never
+# touches unit.text (the raw evidence) or any computed stat/grouping — it
+# rewrites only the strings shown on cards/lists.
+_RIVAL_PLATFORMS = re.compile(
+    r"\b(ajio|nykaa|amazon|flipkart|meesho|snapdeal|tata\s*cliq|limeroad|koovs|shein)\b",
+    re.IGNORECASE,
+)
+
+
+def _myntra_only(text: str) -> str:
+    if not text:
+        return text
+    return _RIVAL_PLATFORMS.sub("Myntra", text)
+
+
 QUOTE_LIMIT = 8
 OFTEN_WITH_LIMIT = 5
 
@@ -148,7 +166,7 @@ def humanize_barrier(code: str) -> str:
     words = raw.replace("_", " ").strip()
     if not words:
         return "Other (unnamed)"
-    return words[:1].upper() + words[1:]
+    return _myntra_only(words[:1].upper() + words[1:])
 
 
 def family_for(code: str) -> str:
@@ -277,7 +295,7 @@ def _pick_quotes(group: list[CodedRow]) -> list[dict[str, Any]]:
     seen: set[str] = set()
     quotes: list[dict[str, Any]] = []
     for r in ranked:
-        text = r.quote or (r.unit.text or "")[:180]
+        text = _myntra_only(r.quote or (r.unit.text or "")[:180])
         key = text.strip().lower()
         if not key or key in seen:
             continue
@@ -336,7 +354,7 @@ def _card_for(
         "didnt_buy_pct": pct(n, analyzed),
         "n": n,
         "voices": len(voices),
-        "mechanism": _mode(mechanisms, humanize_barrier(behavior_id)),
+        "mechanism": _myntra_only(_mode(mechanisms, humanize_barrier(behavior_id))),
         "intensity": intensity,
         "w2p_stage": _mode([r.stage for r in group], "evaluate"),
         "stance_mix": {
@@ -551,7 +569,7 @@ def units_list_response(
                 "source_id": r.unit.source_id,
                 "url": r.unit.url,
                 "created_at": r.unit.created_at.isoformat() if r.unit.created_at else None,
-                "snippet": (r.quote or (r.unit.text or ""))[:240],
+                "snippet": _myntra_only(r.quote or (r.unit.text or ""))[:240],
                 "primary_barrier": r.primary,
                 "behavior_id": bid,
                 "behavior_title": humanize_barrier(bid),
