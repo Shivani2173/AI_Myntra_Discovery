@@ -7,7 +7,7 @@ import re
 import time
 from datetime import datetime, timezone
 
-from sqlalchemy import func, select
+from sqlalchemy import case, func, select
 from sqlalchemy.orm import Session
 
 from pydantic import ValidationError
@@ -22,6 +22,11 @@ from backend.relevance import is_relevant
 from backend.store import save_status
 
 log = logging.getLogger(__name__)
+
+# Curated CSV sources first (small, high-value batch), then App Store, then
+# YouTube (by far the highest-volume source, so it would otherwise dominate
+# the FIFO-by-id queue). Anything else (e.g. Reddit) falls in after, unordered.
+SOURCE_PRIORITY = ["news", "linkedin", "medium", "instagram", "facebook", "web_research", "app_store", "youtube"]
 
 
 def _now() -> datetime:
@@ -193,11 +198,16 @@ def run_extract(session: Session, client: ExtractClient | None = None) -> dict:
         summary["analyzed"] = (rollup.get("header") or {}).get("analyzed", 0)
         return summary
 
+    priority = case(
+        {src: i for i, src in enumerate(SOURCE_PRIORITY)},
+        value=Unit.source,
+        else_=len(SOURCE_PRIORITY),
+    )
     candidates = session.scalars(
         select(Unit)
         .where(Unit.relevance_status == "relevant")
         .where(Unit.id.not_in(select(Code.unit_id)))
-        .order_by(Unit.id)
+        .order_by(priority, Unit.id)
         .limit(cfg["max_units"])
     ).all()
 
