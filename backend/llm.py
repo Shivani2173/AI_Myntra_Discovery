@@ -104,6 +104,57 @@ class GeminiClient:
         return text
 
 
+class GroqClient:
+    name = "groq"
+
+    def __init__(self, api_key: str, model: str) -> None:
+        self.api_key = api_key
+        self.model = model
+
+    def complete(self, unit_text: str, parent_context: dict | None) -> str:
+        payload = {
+            "model": self.model,
+            "temperature": 0.1,
+            "response_format": {"type": "json_object"},
+            "messages": [{"role": "user", "content": build_prompt(unit_text, parent_context)}],
+        }
+        try:
+            with httpx.Client(timeout=60.0) as client:
+                res = client.post(
+                    "https://api.groq.com/openai/v1/chat/completions",
+                    headers={"Authorization": f"Bearer {self.api_key}"},
+                    json=payload,
+                )
+                res.raise_for_status()
+                data = res.json()
+        except Exception as exc:
+            raise LlmError(str(exc)[:500]) from exc
+        choices = data.get("choices") or []
+        if not choices:
+            raise LlmError("Groq returned no choices")
+        return (choices[0].get("message") or {}).get("content") or ""
+
+
+class FallbackClient:
+    """Try `primary`; on any LlmError from it, retry the same call on `secondary`.
+
+    Different vendors have independent rate limits, so a quota hit on one
+    doesn't have to stall a run — it just shifts that call to the other.
+    """
+
+    def __init__(self, primary: ExtractClient, secondary: ExtractClient) -> None:
+        self.primary = primary
+        self.secondary = secondary
+        self.name = f"{primary.name}+{secondary.name}"
+
+    def complete(self, unit_text: str, parent_context: dict | None) -> str:
+        try:
+            return self.primary.complete(unit_text, parent_context)
+        except LlmError as exc:
+            log.warning("%s failed, falling back to %s: %s", self.primary.name, self.secondary.name, exc)
+            return self.secondary.complete(unit_text, parent_context)
+
+
 class OllamaClient:
     name = "ollama"
 
@@ -203,9 +254,17 @@ def resolve_client(settings: Settings, override: ExtractClient | None = None) ->
         return override
     if settings.extract_stub:
         return StubClient()
-    key = (settings.gemini_api_key or "").strip()
-    if key:
-        return GeminiClient(key, settings.gemini_model)
+    gemini_key = (settings.gemini_api_key or "").strip()
+    groq_key = (settings.groq_api_key or "").strip()
+    if gemini_key and groq_key:
+        return FallbackClient(
+            GeminiClient(gemini_key, settings.gemini_model),
+            GroqClient(groq_key, settings.groq_model),
+        )
+    if gemini_key:
+        return GeminiClient(gemini_key, settings.gemini_model)
+    if groq_key:
+        return GroqClient(groq_key, settings.groq_model)
     if ollama_allowed() and settings.ollama_base_url and _ollama_reachable(settings.ollama_base_url):
         return OllamaClient(settings.ollama_base_url, settings.ollama_model)
     return None

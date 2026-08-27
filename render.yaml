@@ -24,6 +24,10 @@ services:
         sync: false
       - key: GEMINI_MODEL
         value: gemini-3.6-flash
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GROQ_MODEL
+        value: llama-3.3-70b-versatile
       - key: YOUTUBE_API_KEY
         sync: false
       - key: REDDIT_CLIENT_ID
