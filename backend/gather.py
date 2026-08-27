@@ -7,10 +7,7 @@ from datetime import datetime, timezone
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
-from backend.config import get_settings
 from backend.connectors.appstore import AppStoreConnector
-from backend.connectors.reddit import RedditConnector
-from backend.connectors.youtube import YouTubeConnector
 from backend.models import GatherJob, SourceWatermark, Unit
 from backend.pipeline_config import load_pipeline_config
 from backend.extract import run_extract
@@ -22,20 +19,11 @@ def _log(msg: str) -> None:
 
 
 def run_gather(session: Session) -> dict:
-    settings = get_settings()
     cfg = load_pipeline_config()
-    queries = cfg.get("queries") or {}
     caps = cfg.get("quota_caps") or {}
     app_ids = cfg.get("app_store_rss_ids") or {}
 
     connectors = [
-        RedditConnector(settings, queries.get("reddit") or [], int(caps.get("reddit_threads") or 20)),
-        YouTubeConnector(
-            settings,
-            queries.get("youtube") or [],
-            int(caps.get("youtube_videos") or 3),
-            int(caps.get("youtube_comments_per_video") or 20),
-        ),
         AppStoreConnector(app_ids, int(caps.get("app_store_pages_per_app") or 1)),
     ]
 
