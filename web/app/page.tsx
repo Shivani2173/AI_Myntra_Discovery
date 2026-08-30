@@ -1,11 +1,6 @@
 import { HomeBehaviors } from "@/components/HomeBehaviors";
 import { RefreshButton } from "@/components/RefreshButton";
-import {
-  bannerFromStatus,
-  CORPUS_CAPTION,
-  fetchBehaviors,
-  formatWhen,
-} from "@/lib/api";
+import { CORPUS_CAPTION, fetchBehaviors, formatWhen } from "@/lib/api";
 import type { BehaviorsResponse } from "@/lib/types";
 
 export const dynamic = "force-dynamic";
@@ -27,7 +22,6 @@ export default async function HomePage() {
   const empty = !data || (data.header.analyzed === 0 && data.behaviors.length === 0);
   const header = data?.header;
   const behaviors = data?.behaviors || [];
-  const banner = header ? bannerFromStatus(header.source_status || []) : null;
 
   return (
     <>
@@ -40,12 +34,6 @@ export default async function HomePage() {
         <div className="banner banner-error" role="alert">
           API unreachable: {error}. Start the backend (`uvicorn backend.main:app --reload --port
           8000`) and set <code>NEXT_PUBLIC_API_URL</code>.
-        </div>
-      ) : null}
-
-      {banner ? (
-        <div className="banner" role="status">
-          {banner}
         </div>
       ) : null}
 

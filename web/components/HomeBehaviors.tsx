@@ -63,13 +63,6 @@ export function HomeBehaviors({ header, behaviors }: Props) {
             {stance.abandon}%
           </span>
         ) : null}
-        {(header.source_status || [])
-          .filter((s) => s.source !== "extract" && s.status === "ok")
-          .map((s) => (
-            <span key={s.source} className={`pill status-${s.status}`}>
-              {sourceLabel(s.source)} {s.status}
-            </span>
-          ))}
       </div>
 
       <div className="chips" role="group" aria-label="Behavior filters">
